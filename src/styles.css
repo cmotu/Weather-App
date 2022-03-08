@@ -1,0 +1,24 @@
+h1 {
+  background: royalblue;
+  border: royalblue;
+  border-radius: 5px;
+  color: #ffe42e;
+}
+.search {
+  float: right;
+}
+
+#current-button {
+  float: right;
+  background: cornflowerblue;
+  color: white;
+}
+
+#city-name {
+  background: grey;
+  border: white;
+  color: white;
+  border-radius: 5px;
+  margin-right: 1000px;
+  padding-left: 10px;
+}
