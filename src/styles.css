@@ -2,7 +2,7 @@ h1 {
   background: black;
   border: black;
   border-radius: 5px;
-  padding-left: 450px;
+  text-align: center;
   color: #fff;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -14,6 +14,13 @@ h3 {
 }
 p {
   font-family: Georgia, "Times New Roman", Times, serif;
+}
+.weather-app {
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
 }
 .search {
   float: right;
@@ -31,9 +38,9 @@ p {
   border: white;
   color: white;
   border-radius: 5px;
-  margin-right: 1000px;
+  margin-right: 400px;
   padding-left: 10px;
 }
 a {
-  margin-left: 200px;
+  margin-left: 400px;
 }
