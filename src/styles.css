@@ -1,8 +1,18 @@
 h1 {
-  background: royalblue;
-  border: royalblue;
+  background: black;
+  border: black;
   border-radius: 5px;
-  color: #ffe42e;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h3 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .search {
   float: right;
@@ -10,8 +20,9 @@ h1 {
 
 #current-button {
   float: right;
-  background: cornflowerblue;
+  background: #f54d27;
   color: white;
+  border-radius: 5px;
 }
 
 #city-name {
