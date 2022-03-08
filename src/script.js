@@ -23,22 +23,8 @@ function formatDate(date) {
   return `${currentDay} ${hour}:${minute}`;
 }
 
-function lookUp(event) {
-  event.preventDefault();
-  let cityElement = document.querySelector("#city-name");
-  let cityInput = document.querySelector("#input");
-  cityElement.innerHTML = cityInput.value;
-}
-
-
-
-let search = document.querySelector(".search");
-search.addEventListener("submit", lookUp);
-
 let date = document.querySelector("#date");
 date.innerHTML = formatDate(currentTime);
-
-
 
 function showTemperature(response) {
   let currentLocation = document.querySelector("#city-name");
@@ -46,40 +32,31 @@ function showTemperature(response) {
   let currentTemperature = Math.round(response.data.main.temp);
   let currentWeather = document.querySelector("#temperature-element");
   currentWeather.innerHTML = `Currently ${currentTemperature}°C`;
-  let currentDescription = response.data.weather[0].description;
-  let localDescription = document.querySelector("#local-description");
-  localDescription.innerHTML = `${currentDescription}`;
 }
-function showWeather(yourLocation) {
+function showWeather(currentLocation) {
   let apiKey = "1a818352d138428def49a8bbe9fafa1c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${yourLocation}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}`;
+  console.log(`${apiUrl}&units=metric&appid=${apiKey}`);
   axios.get(`${apiUrl}&units=metric&appid=${apiKey}`).then(showTemperature);
 }
 function returnLocation(event) {
   event.preventDefault();
-  let yourLocation = document.querySelector("#your-location").value;
-  let currentLocation = document.querySelector("#current-location");
+  let yourLocation = document.querySelector("#input").value;
+  let currentLocation = document.querySelector("#city-name");
   currentLocation.innerHTML = `${yourLocation}`;
   showWeather(yourLocation);
 }
-let choosingLocation = document.querySelector("#location-form");
+let choosingLocation = document.querySelector("#search");
 choosingLocation.addEventListener("submit", returnLocation);
-
-function showTemp(response) {
-    let apiKey = "1a818352d138428def49a8bbe9fafa1c";
-    let apiUrl ="https://api.openweathermap.org/data/2.5/weather?q=";
-    let temperature = Math.round(response.data.main.temp);
-    let temperatureElement = document.querySelector("#temperature-element");
-  temperatureElement.innerHTML = `${temperature}`;
-axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemp);}
 
 function showPosition(position) {
   let longitude = position.coords.longitude;
   let latitude = position.coords.latitude;
   let apiKey = "1a818352d138428def49a8bbe9fafa1c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
 
-  axios.get(apiUrl).then(showTemp);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function findGeolocation() {
@@ -87,4 +64,5 @@ function findGeolocation() {
 }
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", findGeolocation);
+
 
