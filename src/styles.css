@@ -44,3 +44,6 @@ p {
 a {
   margin-left: 400px;
 }
+ul {
+  list-style-type: none;
+}
