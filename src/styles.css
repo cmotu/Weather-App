@@ -46,5 +46,7 @@ a {
 }
 ul {
   list-style-type: none;
+}
+li::first-letter {
   text-transform: capitalize;
 }
