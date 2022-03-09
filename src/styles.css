@@ -12,9 +12,7 @@ h2 {
 h3 {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-p {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
+
 .weather-app {
   border: 1px solid #dadde1;
   border-radius: 5px;
@@ -30,18 +28,11 @@ p {
   float: right;
   background: #f54d27;
   color: white;
+  border: #f54d27;
   border-radius: 5px;
 }
 
-#city-name {
-  background: grey;
-  border: white;
-  color: white;
-  border-radius: 5px;
-  margin-right: 400px;
-  padding-left: 10px;
-}
-a {
+#github-link {
   margin-left: 400px;
 }
 ul {
@@ -49,4 +40,23 @@ ul {
 }
 li::first-letter {
   text-transform: capitalize;
+}
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+.active:hover {
+  text-decoration: none;
+}
+strong {
+  font-size: 64px;
+  color: rgb(33, 33, 33);
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }

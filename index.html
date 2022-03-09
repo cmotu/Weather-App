@@ -30,25 +30,18 @@
         <h2 id="date">
             Today is:
         </h2>
-        <h3>
-            Current Temperature:
+        <h3 id="city-name">
+            City
             
         </h3>
         <br />
-        <p id="city-name">
-            Current City:
         <form id="location-form"></form>
-        </p>
+        
         <div class="row">
             <div class="col-6" id="temperature">
-            <span id="temperature-element">17°C
-            </span>
-            <img 
-            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-            id="icon"
-            alt="Clear"
-            class="float-left"
-            />
+                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" id="icon" alt="Clear" class="float-left" />
+            <strong id="temperature-element"></strong><span class="units"><a href="#" id="celsius" class="active">°C</a> | <a href="#" id="fahrenheit">°F</a></span>
+            </div>
         </div>
         <br>
         <div class="col-6">
@@ -62,46 +55,13 @@
             </li>
         </ul>
         </div>
-
-    </div>
-</div>
-        <br />
-        <br />
-        <h3>
-            Weekly Forecast:
-        </h3>
-        <div class="row">
-            <div class="col">
-                Monday
-                <br />
-                🌤
-            </div>
-            <div class="col">
-                Tuesday
-                <br />
-                🌤
-            </div>
-            <div class="col">
-                Wednesday
-                <br />
-                🌤
-            </div>
-            <div class="col">
-                Thursday
-                <br />
-                🌤
-            </div>
-            <div class="col">
-                Friday
-                <br />
-                🌤
-            </div>
+        
         </div>
     </div>
     <br>
     <br>
     </div>
-    <a href="https://github.com/cmotu/Weather-App">Open-source code by Christina Motu</a>
+    <a id="github-link" href="https://github.com/cmotu/Weather-App">Open-source code by Christina Motu</a>
 
     <script src="src/script.js"></script>
 </body>
