@@ -26,6 +26,13 @@ function formatDate(date) {
 let date = document.querySelector("#date");
 date.innerHTML = formatDate(currentTime);
 
+function getForecast(coordinates){
+  let apiKey = "1a818352d138428def49a8bbe9fafa1c";
+let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric;`
+axios.get(apiUrl).then(displayForecast);
+}
+
+
 function showTemperature(response) {
   let currentLocation = document.querySelector("#city-name");
   currentLocation.innerHTML = response.data.name;
@@ -45,7 +52,10 @@ function showTemperature(response) {
     "alt", response.data.weather[0].description);
   
   celsiusTemperature=response.data.main.temp;
+getForecast(response.data.coord);
+  
 }
+
 function showWeather(currentLocation) {
   let apiKey = "1a818352d138428def49a8bbe9fafa1c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentLocation}`;
@@ -68,7 +78,7 @@ function showPosition(position) {
   let latitude = position.coords.latitude;
   let apiKey = "1a818352d138428def49a8bbe9fafa1c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  
 
   axios.get(apiUrl).then(showTemperature);
 }
@@ -76,6 +86,7 @@ function showPosition(position) {
 function findGeolocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", findGeolocation);
 
@@ -103,3 +114,44 @@ celsiusLink.addEventListener("click", showCelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", showFahrenheit);
+
+
+function formatDay(date){
+let date=new Date(timestamp * 1000);
+let day=date.getDay();
+let days=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+return day[day];
+}
+function displayForecast(response){
+  let forecast=response.data.daily;
+  let forecastElement=document.querySelector("#forecast");
+let forecastHTML=`<div class="row">`;
+
+forecast.forEach(function(forecastDay, index) {
+  if (index <6){
+forecastHTML=
+   forecastHTML + 
+   `
+                <div class="col-2">
+                    <div class="weather-forecast-date">
+                     ${formatDay(forecastDay.dt)}</div>
+                    <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" width="50" alt="">
+                    <div class="weather-forecast-temperature">
+                    <span class="weather-forecast-temperature-max">
+                    ${Math.round(forecastDay.temp.max)}°
+                </span><span class="weather-forecast-temperature-min">
+                    ${Math.round(forecastDay.temp.min)}°</span>
+                
+                </div>
+            </div>`;
+
+  }
+})
+
+
+forecastHTML= forecastHTML+`</div>`;
+forecastElement.innerHTML=forecastHTML;}
+
+
+  
+  
