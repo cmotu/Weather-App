@@ -93,19 +93,22 @@ currentButton.addEventListener("click", findGeolocation);
 
 function showFahrenheit(event){
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature=(celsiusTemperature * 9) / 5 + 32;
   let temperatureElement=document.querySelector("#temperature-element");
   temperatureElement.innerHTML=Math.round(fahrenheitTemperature);
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
+  
 }
 
 function showCelsius(event){
   event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperatureElement=document.querySelector("#temperature-element");
   temperatureElement.innerHTML=Math.round(celsiusTemperature);
-fahrenheitLink.classList.remove("active");
-celsiusLink.classList.add("active");
+
+
 }
 
 let celsiusTemperature= null;

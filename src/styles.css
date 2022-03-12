@@ -50,14 +50,6 @@ li::first-letter {
   text-transform: capitalize;
 }
 
-.active {
-  color: rgb(33, 33, 33);
-  cursor: default;
-  text-decoration: none;
-}
-.active:hover {
-  text-decoration: none;
-}
 strong {
   font-size: 64px;
   color: rgb(33, 33, 33);
